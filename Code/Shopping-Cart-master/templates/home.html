@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} Home - Walzon {% endblock %}
+
+{% block body %}
+<div class="catalog">
+		{% for data in itemData %}
+			{% for row in data %}
+			<div class="product">
+					<a href="/productDescription?productId={{row[0]}}">
+						<img class="product-image" src={{ url_for('static', filename='uploads/' + row[4]) }}/>
+						<h3 class="product-title">{{row[1]}}</h3>
+						<p class="product-detail">${{row[2]}}</p>
+						<p class="product-detail">Stock: {{row[5]}}</p>
+					</a>
+			</div>
+			{% endfor %}
+		{% endfor %}
+	</div>
+{% endblock %}

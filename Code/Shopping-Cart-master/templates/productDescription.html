@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Product - Walzon {% endblock %}
+
+{% block body %}
+<div class="product-page">
+	<div>
+		<img src={{url_for('static', filename='uploads/'+data[4]) }} id="productImage"/>
+	</div>
+	<div class="product-desc">
+		<h1>{{data[1]}}</h1>
+		<p>Price: ${{data[2]}}</p>
+		<p>Stock: {{data[5]}}</p>
+		<p>Description: <br> {{data[3]}}</p>
+		<a class="cart-button" href="/addToCart?productId={{request.args.get('productId')}}">Add to Cart</a>
+	</div>
+</div>
+{% endblock %}

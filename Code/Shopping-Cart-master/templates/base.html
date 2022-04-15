@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>{% block title %} {% endblock %}</title>
+{% block link %}
+{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/basestyles.css')}}">
+</head>
+<body>
+    <header>
+        <a id="home" href="/"><span>Walzon</span></a>
+        <nav>
+            <ul class="nav_links">
+                <li><a class="link" href="/cart">CART: {{noOfItems}}</a></li>
+                {% if not loggedIn %}
+                <li><a href="/loginForm">Sign In</a></li>
+                {% else %}
+                <li><a href="/account/profile">Profile</a></li>
+                <li><a href="/logout">Sign Out</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+                
+{% block body %}
+{% endblock %} 
+</body>
+</html>

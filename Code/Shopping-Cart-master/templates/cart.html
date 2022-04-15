@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} Cart - Walzon {% endblock %}
+
+{% block body %}
+<div class="shopping-cart">
+	<h2>Shopping Cart</h2>
+		{% for row in products %}
+		<div class="cart-item">
+				<img src={{url_for('static', filename='uploads/'+row[3])}} id="image"/>
+				<b><span>{{row[1]}}</span></b>
+				<span>${{row[2]}}</span>
+				<span>In Stock</span>
+				<a href="/removeFromCart?productId={{row[0]}}">Remove</a>
+				<hr>
+			</div>
+		{% endfor %}
+		<div id="subtotal">
+			<span>Subtotal:</span> 
+			<span class="subtotal-amount">${{totalPrice}}</span>
+		</div>
+<a class="cart-checkout" href="/checkout">Proceed to checkout</a>
+</div>
+{% endblock %}

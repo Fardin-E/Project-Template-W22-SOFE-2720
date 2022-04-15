@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} Remove - Walzon {% endblock %}
+
+{% block body %}
+<div class="catalog">
+	{% for i in range(6) %}
+		{% for row in data %}
+			<a href="/removeItem?productId={{row[0]}}">
+			{% if i == 4 %}
+				<img class="remove-product" src={{ url_for('static', filename='uploads/' + row[i]) }} id="itemImage" />
+			{% endif %}
+			</a>
+		{% endfor %}
+	{% endfor %}
+</div>
+{% endblock %}
